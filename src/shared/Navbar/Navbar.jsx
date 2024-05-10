@@ -1,16 +1,19 @@
-import logo from "../../../public/logo.png";
 import {Link} from "react-router-dom";
+import logo from "../../../public/logo.jpg";
 import useAuth from "../../hooks/useAuth/useAuth";
 
 const Navbar = () => {
   const {user, logOut} = useAuth();
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto">
       <div className="flex-1">
-        <Link to="/" className="flex gap-2 items-center">
-          <img className="w-auto h-7" src={logo} alt="" />
-          <span className="font-bold">SoloSphere</span>
-        </Link>
+        <div className="flex gap-2 items-center">
+          <Link to="/">
+            <img className="w-auto h-20" src={logo} alt="" />
+          </Link>
+          <span className="font-bold text-2xl">JobNest</span>
+        </div>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
@@ -18,9 +21,8 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/allJob">All Job</Link>
+            <Link to="/allJobs">All Jobs</Link>
           </li>
-
           {!user && (
             <li>
               <Link to="/login">Login</Link>
@@ -48,18 +50,13 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/add-job" className="justify-between">
-                  Add Job
-                </Link>
+                <div className="justify-between">Add A Job</div>
               </li>
               <li>
-                <Link to="/my-posted-jobs">My Posted Jobs</Link>
+                <div>Applied Jobs</div>
               </li>
               <li>
-                <Link to="/my-bids">My Bids</Link>
-              </li>
-              <li>
-                <Link to="/bid-requests">Bid Requests</Link>
+                <div>My Jobs</div>
               </li>
               <li className="mt-2">
                 <button
