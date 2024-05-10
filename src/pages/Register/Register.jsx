@@ -32,6 +32,7 @@ const Register = () => {
     googleUser()
       .then((result) => {
         console.log(result.user);
+        toast.success("User Create By Google!");
       })
       .catch((err) => {
         console.log(err);

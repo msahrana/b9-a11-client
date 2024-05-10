@@ -1,8 +1,12 @@
 import {Link} from "react-router-dom";
 import logo from "../../../public/login.jpg";
 import {useForm} from "react-hook-form";
+import useAuth from "../../hooks/useAuth/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const {signIn, googleUser} = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -10,7 +14,23 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const {email, password} = data || {};
+
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("User Logged Successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleGoogle = () => {
+    googleUser().then((result) => {
+      console.log(result.user);
+      toast.success("User Logged By Google!");
+    });
   };
 
   return (
@@ -36,7 +56,10 @@ const Login = () => {
             Welcome back!
           </p>
 
-          <div className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 ">
+          <div
+            onClick={handleGoogle}
+            className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
+          >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">
                 <path
