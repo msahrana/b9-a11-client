@@ -50,13 +50,13 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <div className="justify-between">Add A Job</div>
+                <Link to="/addJobs">Add A Job</Link>
               </li>
               <li>
-                <div>Applied Jobs</div>
+                <Link to="/appliedJobs">Applied Jobs</Link>
               </li>
               <li>
-                <div>My Jobs</div>
+                <Link to="/myJobs">My Jobs</Link>
               </li>
               <li className="mt-2">
                 <button
