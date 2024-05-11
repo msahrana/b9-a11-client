@@ -1,5 +1,7 @@
+import {Link} from "react-router-dom";
+
 const AllJobsRow = ({job}) => {
-  const {job_title, deadline, jobPostingDate, salary} = job || {};
+  const {job_title, deadline, jobPostingDate, salary, _id} = job || {};
 
   return (
     <tr>
@@ -26,9 +28,11 @@ const AllJobsRow = ({job}) => {
       </td>
 
       <td className="px-4 py-4 text-sm whitespace-nowrap">
-        <button className="bg-orange-500 p-2 text-white rounded-xl">
-          View Details
-        </button>
+        <Link to={`/job/${_id}`}>
+          <button className="bg-orange-500 p-2 text-white rounded-xl">
+            View Details
+          </button>
+        </Link>
       </td>
     </tr>
   );

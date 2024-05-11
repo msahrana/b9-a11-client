@@ -7,7 +7,7 @@ const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch(`${import.meta.env.VITE_API_URL}/jobs`)
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, []);
