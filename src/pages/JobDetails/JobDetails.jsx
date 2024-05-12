@@ -1,14 +1,46 @@
 import {useLoaderData} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
   const job = useLoaderData();
   const {user} = useAuth();
-  const {job_title, photo, description, applicantNumber, salary, category} =
-    job || {};
+  const {
+    job_title,
+    photo,
+    description,
+    applicantNumber,
+    salary,
+    category,
+    deadline,
+    jobPostingDate,
+    email,
+  } = job || {};
 
-  const handleApply = () => {
-    console.log("clicked");
+  const handleApply = async (e) => {
+    e.preventDefault();
+    const jobData = {
+      job_title,
+      email,
+      deadline,
+      jobPostingDate,
+      salary,
+      category,
+      photo,
+      description,
+      applicantNumber,
+    };
+    try {
+      const {data} = await axios.post(
+        `${import.meta.env.VITE_API_URL}/applied`,
+        jobData
+      );
+      console.log(data);
+      toast.success("Your Job Applied Successful!");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -55,10 +87,16 @@ const JobDetails = () => {
                 <input type="text" />
                 <input
                   type="file"
+                  name="file"
                   className="file-input file-input-bordered file-input-primary"
+                  required
                 />
                 <div className="modal-action">
                   <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn btn-sm btn-circle bg-orange-500 absolute right-2 top-2">
+                      ✕
+                    </button>
                     <button
                       onClick={handleApply}
                       className="bg-orange-500 px-10 py-2 text-white rounded-xl"
