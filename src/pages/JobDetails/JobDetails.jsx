@@ -19,7 +19,10 @@ const JobDetails = () => {
         </figure>
         <div className="card-body">
           <div className="flex flex-col md:flex-row lg:flex-row gap-10 items-center">
-            <h2 className="card-title">{job_title}</h2>
+            <h2 className="card-title">
+              <span className="font-bold">Position: </span>
+              {job_title}
+            </h2>
             <p>Category: {category}</p>
           </div>
           <div className="flex flex-col md:flex-row lg:flex-row gap-6">
