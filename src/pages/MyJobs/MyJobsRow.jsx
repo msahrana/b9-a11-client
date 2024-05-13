@@ -1,5 +1,6 @@
-const MyJobsRow = ({job}) => {
-  const {job_title, deadline, jobPostingDate, salary, category} = job || {};
+const MyJobsRow = ({job, handleDelete}) => {
+  const {job_title, deadline, jobPostingDate, salary, category, _id} =
+    job || {};
 
   return (
     <tr>
@@ -34,7 +35,10 @@ const MyJobsRow = ({job}) => {
         </button>
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap font-medium">
-        <button className="bg-red-500 px-3 py-1 rounded-full text-white">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="bg-red-500 px-3 py-1 rounded-full text-white"
+        >
           Delete
         </button>
       </td>

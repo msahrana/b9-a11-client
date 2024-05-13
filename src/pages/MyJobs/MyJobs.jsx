@@ -2,20 +2,37 @@ import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
 import axios from "axios";
 import MyJobsRow from "./MyJobsRow";
+import toast from "react-hot-toast";
 
 const MyJobs = () => {
   const {user} = useAuth();
   const [jobs, setJobs] = useState([]);
 
+  const getData = async () => {
+    const {data} = await axios(
+      `${import.meta.env.VITE_API_URL}/jobs/${user?.email}`
+    );
+    setJobs(data);
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      const {data} = await axios(
-        `${import.meta.env.VITE_API_URL}/jobs/${user?.email}`
-      );
-      setJobs(data);
-    };
     getData();
   }, [user?.email]);
+
+  const handleDelete = async (id) => {
+    try {
+      const {data} = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/job/${id}`
+      );
+      console.log(data);
+      toast.success("Delete Successful");
+      //refresh ui
+      getData();
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
+    }
+  };
 
   return (
     <section className="container px-4 mx-auto pt-12 min-h-[calc(100vh-280px)]">
@@ -87,7 +104,11 @@ const MyJobs = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {jobs.map((job) => (
-                    <MyJobsRow key={job._id} job={job}></MyJobsRow>
+                    <MyJobsRow
+                      key={job._id}
+                      job={job}
+                      handleDelete={handleDelete}
+                    ></MyJobsRow>
                   ))}
                 </tbody>
               </table>
