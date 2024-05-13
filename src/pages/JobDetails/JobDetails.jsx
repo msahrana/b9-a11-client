@@ -1,7 +1,7 @@
 import {useLoaderData} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 import axios from "axios";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
   const job = useLoaderData();
@@ -16,6 +16,7 @@ const JobDetails = () => {
     deadline,
     jobPostingDate,
     email,
+    _id,
   } = job || {};
 
   const handleApply = async (e) => {
@@ -30,6 +31,7 @@ const JobDetails = () => {
       photo,
       description,
       applicantNumber,
+      jobId: _id,
     };
     try {
       const {data} = await axios.post(
@@ -37,7 +39,13 @@ const JobDetails = () => {
         jobData
       );
       console.log(data);
-      toast.success("Your Job Applied Successful!");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your Job Applied Successful!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (err) {
       console.log(err);
     }
