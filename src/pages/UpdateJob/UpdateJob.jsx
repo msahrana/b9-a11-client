@@ -20,42 +20,43 @@ const UpdateJob = () => {
     photo,
     description,
     applicantNumber,
+    _id,
   } = job || {};
 
-  //   const handleFormUpdate = async (e) => {
-  //     e.preventDefault();
-  //     const form = e.target;
-  //     const job_title = form.job_title.value;
-  //     const email = form.email.value;
-  //     const deadline = startDate;
-  //     const jobPostingDate = startDate;
-  //     const salary = parseInt(form.salary.value);
-  //     const category = form.category.value;
-  //     const photo = form.photo.value;
-  //     const description = form.description.value;
+  const handleFormUpdate = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const job_title = form.job_title.value;
+    const email = form.email.value;
+    const deadline = startDate;
+    const jobPostingDate = startDate;
+    const salary = parseInt(form.salary.value);
+    const category = form.category.value;
+    const photo = form.photo.value;
+    const description = form.description.value;
 
-  //     const jobData = {
-  //       job_title,
-  //       email,
-  //       deadline,
-  //       jobPostingDate,
-  //       salary,
-  //       category,
-  //       photo,
-  //       description,
-  //       applicantNumber,
-  //     };
-  //     try {
-  //       const {data} = await axios.patch(
-  //         `${import.meta.env.VITE_API_URL}/job`,
-  //         jobData
-  //       );
-  //       console.log(data);
-  //       toast.success("Job Data Successfully Updated!");
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
+    const jobData = {
+      job_title,
+      email,
+      deadline,
+      jobPostingDate,
+      salary,
+      category,
+      photo,
+      description,
+      applicantNumber,
+    };
+    try {
+      const {data} = await axios.patch(
+        `${import.meta.env.VITE_API_URL}/job/${_id}`,
+        jobData
+      );
+      console.log(data);
+      toast.success("Job Data Successfully Updated!");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-280px)]">
