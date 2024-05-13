@@ -29,7 +29,7 @@ const AllJobsRow = ({job}) => {
 
       <td className="px-4 py-4 text-sm whitespace-nowrap">
         <Link to={`/job/${_id}`}>
-          <button className="bg-orange-500 p-2 text-white rounded-xl">
+          <button className="bg-orange-500 px-4 py-1 text-white rounded-xl">
             View Details
           </button>
         </Link>

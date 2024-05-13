@@ -45,7 +45,7 @@ const JobDetails = () => {
 
   return (
     <div className="min-h-[calc(100vh-304px)]">
-      <div className="card w-96 bg-base-100 shadow-xl mt-6 mx-auto">
+      <div className="card w-[500px] bg-base-100 shadow-xl mt-6 mx-auto">
         <figure>
           <img src={photo} alt="Shoes" />
         </figure>
@@ -57,11 +57,14 @@ const JobDetails = () => {
             </h2>
             <p>Category: {category}</p>
           </div>
-          <div className="flex flex-col md:flex-row lg:flex-row gap-6">
+          <div className="flex flex-col md:flex-row lg:flex-row gap-10">
             <p>Salary: ${salary}</p>
             <p>Applicants: {applicantNumber}</p>
           </div>
-          <p>{description}</p>
+          <p className="text-justify">
+            <span className="font-bold">Description: </span>
+            {description}
+          </p>
           <div className="w-full">
             {/* modal */}
             <button

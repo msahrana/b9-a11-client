@@ -62,7 +62,7 @@ const MyJobs = () => {
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
                       <button className="flex items-center gap-x-2">
-                        <span>Price</span>
+                        <span>Job Category</span>
                       </button>
                     </th>
 
@@ -70,14 +70,14 @@ const MyJobs = () => {
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
-                      Category
+                      Salary
                     </th>
 
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
-                      Status
+                      Actions
                     </th>
 
                     <th className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">

@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const AddJobs = () => {
   const {user} = useAuth();
   const [startDate, setStartDate] = useState(new Date());
+  const [startJob, setStartJob] = useState(new Date());
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +62,7 @@ const AddJobs = () => {
                 id="job_title"
                 name="job_title"
                 type="text"
+                required
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -86,6 +88,7 @@ const AddJobs = () => {
                 className="border p-2 rounded-md"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
+                required
               />
             </div>
 
@@ -93,8 +96,9 @@ const AddJobs = () => {
               <label className="text-gray-700">Job Posting Date:</label>
               <DatePicker
                 className="border p-2 rounded-md"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                selected={startJob}
+                onChange={(date) => setStartJob(date)}
+                required
               />
             </div>
             <div>
@@ -105,6 +109,7 @@ const AddJobs = () => {
                 id="salary"
                 name="salary"
                 type="number"
+                required
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -117,6 +122,7 @@ const AddJobs = () => {
                 name="category"
                 id="category"
                 className="border p-2 rounded-md"
+                required
               >
                 <option value="On Site">On Site</option>
                 <option value="Remote">Remote</option>
@@ -135,6 +141,7 @@ const AddJobs = () => {
                 id="photo"
                 name="photo"
                 type="text"
+                required
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -162,6 +169,7 @@ const AddJobs = () => {
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               name="description"
               id="description"
+              required
             ></textarea>
           </div>
           <div className="flex justify-end mt-6">

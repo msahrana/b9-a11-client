@@ -21,7 +21,7 @@ const JobCard = ({job}) => {
       className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md hover:scale-[1.05] transition-all"
     >
       <div className="flex items-center justify-between">
-        <span className="text-xs font-light text-gray-800 ">
+        <span className="text-xs font-light text-gray-800">
           Deadline: {new Date(deadline).toLocaleDateString()}
         </span>
         <span className="text-xs font-light text-gray-800 ">
@@ -53,7 +53,7 @@ const JobCard = ({job}) => {
           </span>
           : ${salary}
         </p>
-        <p className="mt-2 text-sm font-bold text-gray-600 ">
+        <p className="mt-2 text-sm font-bold text-gray-600">
           Job Applicant Number: {applicantNumber}
         </p>
       </div>
