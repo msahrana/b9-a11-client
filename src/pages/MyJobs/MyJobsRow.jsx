@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 const MyJobsRow = ({job, handleDelete}) => {
   const {job_title, deadline, jobPostingDate, salary, category, _id} =
     job || {};
@@ -30,9 +32,11 @@ const MyJobsRow = ({job, handleDelete}) => {
         </div>
       </td>
       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-        <button className="bg-orange-500 px-3 py-1 rounded-full text-white">
-          Update
-        </button>
+        <Link to={`/updateJob/${_id}`}>
+          <button className="bg-orange-500 px-3 py-1 rounded-full text-white">
+            Update
+          </button>
+        </Link>
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap font-medium">
         <button
