@@ -12,6 +12,7 @@ import JobDetails from "../../pages/JobDetails/JobDetails";
 import Blogs from "../../pages/Blogs/Blogs";
 import UpdateJob from "../../pages/UpdateJob/UpdateJob";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Contact from "../../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
         element: <UpdateJob></UpdateJob>,
         loader: ({params}) =>
           fetch(`${import.meta.env.VITE_API_URL}/job/${params.id}`),
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
     ],
   },

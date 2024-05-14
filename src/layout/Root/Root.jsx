@@ -1,6 +1,7 @@
 import {Outlet} from "react-router-dom";
 import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
+import Subscribe from "../../components/Subscribe/Subscribe";
 
 const Root = () => {
   return (
@@ -11,6 +12,7 @@ const Root = () => {
           <Outlet></Outlet>
         </div>
       </div>
+      <Subscribe></Subscribe>
       <Footer></Footer>
     </div>
   );

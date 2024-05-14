@@ -39,8 +39,8 @@ const Navbar = () => {
           <li>
             <Link to="/allJobs">All Jobs</Link>
           </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
+          <li className="hidden lg:flex">
+            <Link to="/contact">Contact</Link>
           </li>
           {!user && (
             <li>
@@ -77,6 +77,9 @@ const Navbar = () => {
               <li>
                 <Link to="/myJobs">My Jobs</Link>
               </li>
+              <li>
+                <Link to="/blogs">Blogs</Link>
+              </li>
               <li className="mt-2">
                 <button
                   onClick={logOut}
@@ -89,7 +92,7 @@ const Navbar = () => {
           </div>
         )}
         {/* theme */}
-        <label className="cursor-pointer grid place-items-center">
+        <label className="cursor-pointer lg:grid place-items-center hidden">
           <input
             onChange={handleToggleTheme}
             type="checkbox"
