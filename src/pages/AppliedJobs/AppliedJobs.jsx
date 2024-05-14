@@ -1,23 +1,28 @@
-import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
 import AppliedJobsRow from "./AppliedJobsRow";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import {useQuery} from "@tanstack/react-query";
+import {Helmet} from "react-helmet-async";
 
 const AppliedJobs = () => {
   const {user} = useAuth();
-  const [applied, setApplied] = useState([]);
   const axiosSecure = useAxiosSecure();
 
-  useEffect(() => {
-    const getData = async () => {
-      const {data} = await axiosSecure(`/applied/${user?.email}`);
-      setApplied(data);
-    };
-    getData();
-  }, [user?.email]);
+  const getData = async () => {
+    const {data} = await axiosSecure(`/applied/${user?.email}`);
+    return data;
+  };
+
+  const {data: applied = []} = useQuery({
+    queryKey: ["applied", user?.email],
+    queryFn: () => getData(),
+  });
 
   return (
     <section className="container px-4 mx-auto pt-12 min-h-[calc(100vh-280px)]">
+      <Helmet>
+        <title>Elysian Estates | Applied Jobs</title>
+      </Helmet>
       <div className="flex items-center gap-x-3">
         <h2 className="text-lg font-medium text-gray-800 ">Applied Jobs:</h2>
 

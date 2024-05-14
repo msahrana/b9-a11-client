@@ -1,22 +1,23 @@
-import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
 import MyJobsRow from "./MyJobsRow";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import {useQuery} from "@tanstack/react-query";
+import {Helmet} from "react-helmet-async";
 
 const MyJobs = () => {
   const {user} = useAuth();
-  const [jobs, setJobs] = useState([]);
   const axiosSecure = useAxiosSecure();
 
   const getData = async () => {
     const {data} = await axiosSecure(`/jobs/${user?.email}`);
-    setJobs(data);
+    return data;
   };
 
-  useEffect(() => {
-    getData();
-  }, [user?.email]);
+  const {data: jobs = []} = useQuery({
+    queryKey: ["jobs", user?.email],
+    queryFn: () => getData(),
+  });
 
   const handleDelete = async (id) => {
     try {
@@ -33,6 +34,9 @@ const MyJobs = () => {
 
   return (
     <section className="container px-4 mx-auto pt-12 min-h-[calc(100vh-280px)]">
+      <Helmet>
+        <title>Elysian Estates | My Jobs</title>
+      </Helmet>
       <div className="flex items-center gap-x-3">
         <h2 className="text-lg font-medium text-gray-800 ">My Jobs:</h2>
 

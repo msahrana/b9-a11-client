@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import {Helmet} from "react-helmet-async";
 
 const AddJobs = () => {
   const {user} = useAuth();
@@ -45,6 +46,9 @@ const AddJobs = () => {
 
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-280px)]">
+      <Helmet>
+        <title>Elysian Estates | Add Jobs</title>
+      </Helmet>
       <section className="p-2 md:p-6 mx-auto bg-white rounded-md shadow-md border">
         <h2 className="text-xl font-semibold text-gray-700 capitalize ">
           Add a New Job:
