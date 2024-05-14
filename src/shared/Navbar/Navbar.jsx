@@ -93,7 +93,7 @@ const Navbar = () => {
           <input
             onChange={handleToggleTheme}
             type="checkbox"
-            value="synthwave"
+            value="dark"
             className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
           />
           <svg

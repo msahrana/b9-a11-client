@@ -2,13 +2,14 @@ import {useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const AddJobs = () => {
   const {user} = useAuth();
   const [startDate, setStartDate] = useState(new Date());
   const [startJob, setStartJob] = useState(new Date());
+  const axiosSecure = useAxiosSecure();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -34,10 +35,7 @@ const AddJobs = () => {
       applicantNumber: 0,
     };
     try {
-      const {data} = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jobs`,
-        jobData
-      );
+      const {data} = await axiosSecure.post(`/jobs`, jobData);
       console.log(data);
       toast.success("Job Data Added Successfully!");
     } catch (err) {

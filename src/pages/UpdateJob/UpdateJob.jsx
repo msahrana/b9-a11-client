@@ -2,13 +2,14 @@ import {useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 import toast from "react-hot-toast";
 import {useLoaderData} from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const UpdateJob = () => {
   const job = useLoaderData();
   const {user} = useAuth();
+  const axiosSecure = useAxiosSecure();
   const [startDate, setStartDate] = useState(new Date());
   const [startJob, setStartJob] = useState(new Date());
 
@@ -47,10 +48,7 @@ const UpdateJob = () => {
       applicantNumber,
     };
     try {
-      const {data} = await axios.patch(
-        `${import.meta.env.VITE_API_URL}/job/${_id}`,
-        jobData
-      );
+      const {data} = await axiosSecure.patch(`/job/${_id}`, jobData);
       console.log(data);
       toast.success("Job Data Successfully Updated!");
     } catch (err) {

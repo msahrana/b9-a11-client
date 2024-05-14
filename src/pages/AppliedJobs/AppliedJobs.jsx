@@ -1,17 +1,16 @@
 import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
-import axios from "axios";
 import AppliedJobsRow from "./AppliedJobsRow";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const AppliedJobs = () => {
   const {user} = useAuth();
   const [applied, setApplied] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     const getData = async () => {
-      const {data} = await axios(
-        `${import.meta.env.VITE_API_URL}/applied/${user?.email}`
-      );
+      const {data} = await axiosSecure(`/applied/${user?.email}`);
       setApplied(data);
     };
     getData();

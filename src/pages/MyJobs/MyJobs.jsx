@@ -1,17 +1,16 @@
 import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
-import axios from "axios";
 import MyJobsRow from "./MyJobsRow";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const MyJobs = () => {
   const {user} = useAuth();
   const [jobs, setJobs] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   const getData = async () => {
-    const {data} = await axios(
-      `${import.meta.env.VITE_API_URL}/jobs/${user?.email}`
-    );
+    const {data} = await axiosSecure(`/jobs/${user?.email}`);
     setJobs(data);
   };
 
@@ -21,9 +20,7 @@ const MyJobs = () => {
 
   const handleDelete = async (id) => {
     try {
-      const {data} = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/job/${id}`
-      );
+      const {data} = await axiosSecure.delete(`/job/${id}`);
       console.log(data);
       toast.success("Delete Successful");
       //refresh ui
