@@ -47,7 +47,7 @@ const AddJobs = () => {
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-280px)]">
       <Helmet>
-        <title>Elysian Estates | Add Jobs</title>
+        <title>JobNest | Add Jobs</title>
       </Helmet>
       <section className="p-2 md:p-6 mx-auto bg-white rounded-md shadow-md border">
         <h2 className="text-xl font-semibold text-gray-700 capitalize ">

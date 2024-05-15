@@ -4,7 +4,7 @@ const Blogs = () => {
   return (
     <div className="min-h-[calc(100vh-320px)] px-10">
       <Helmet>
-        <title>Elysian Estates | Blogs</title>
+        <title>JobNest | Blogs</title>
       </Helmet>
       <div>
         <h1 className="text-4xl font-bold text-center my-10">Our Blogs:</h1>

@@ -49,7 +49,6 @@ const JobDetails = () => {
     } catch (err) {
       console.log(err);
     }
-    console.log(jobData);
   };
 
   return (

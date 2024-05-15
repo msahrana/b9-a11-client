@@ -40,7 +40,6 @@ const AllJobs = () => {
   const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
 
   const handlePaginationButton = (value) => {
-    console.log(value);
     setCurrentPage(value);
   };
 
@@ -58,7 +57,7 @@ const AllJobs = () => {
   return (
     <div className="container px-6 mx-auto min-h-[calc(100vh-280px)] flex flex-col justify-between">
       <Helmet>
-        <title>Elysian Estates | All Jobs</title>
+        <title>JobNest | All Jobs</title>
       </Helmet>
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
