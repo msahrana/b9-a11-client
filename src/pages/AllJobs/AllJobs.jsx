@@ -75,7 +75,7 @@ const AllJobs = () => {
               className="border p-4 rounded-lg"
             >
               <option value="">Filter By Category</option>
-              <option value="On-Site">On-Site</option>
+              <option value="On Site">On-Site</option>
               <option value="Remote">Remote</option>
               <option value="Part-Time">Part-Time</option>
               <option value="Hybrid">Hybrid</option>
@@ -142,9 +142,7 @@ const AllJobs = () => {
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                       >
-                        <button className="flex items-center gap-x-2">
-                          <span>Job Posting Date</span>
-                        </button>
+                        <span>Job Posting Date</span>
                       </th>
 
                       <th

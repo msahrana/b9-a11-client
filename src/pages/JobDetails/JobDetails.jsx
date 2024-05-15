@@ -15,12 +15,12 @@ const JobDetails = () => {
     category,
     deadline,
     jobPostingDate,
-    email,
     _id,
   } = job || {};
 
   const handleApply = async (e) => {
     e.preventDefault();
+    const email = user?.email;
     const jobData = {
       job_title,
       email,
@@ -49,6 +49,7 @@ const JobDetails = () => {
     } catch (err) {
       console.log(err);
     }
+    console.log(jobData);
   };
 
   return (
@@ -85,7 +86,7 @@ const JobDetails = () => {
               <div className="modal-box">
                 <input
                   type="text"
-                  name=""
+                  name="email"
                   defaultValue={user?.email}
                   className="p-2 border rounded-md mb-5"
                 />
