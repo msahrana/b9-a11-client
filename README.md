@@ -4,7 +4,7 @@ Selected Category: Assignment_category_0003
 
 Bullet Point:
 
-- Home page: Home pages has a navbar, Banner, Tab section, History, Newsletter and Footer. In Tab section has four items, such as On site, Hybrid, Part-time and Remote job offer. Each item contain deadline, job posting date, job posting owner name, salary and short description. If you click any point of card, it redirect to details page. In details page, you can apply ow button, if you click apply now button, a modal is open. Here you add a pdf file and submit. Then it save to mongodb.
+- Home Page: Home pages has a navbar, Banner, Tab section, History, Newsletter and Footer. In Tab section has four items, such as On site, Hybrid, Part-time and Remote job offer. Each item contain deadline, job posting date, job posting owner name, salary and short description. If you click any point of card, it redirect to details page. In details page, you can apply ow button, if you click apply now button, a modal is open. Here you add a pdf file and submit. Then it save to mongodb.
 
 - Login Page: Here contain a login page. Also you can login different social login such as google.
 
