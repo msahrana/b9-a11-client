@@ -1,17 +1,20 @@
 Site Name: JobNest
 Site URL:https://job-nest-8cab6.web.app
-Selected Category: Assignment_category_0003
+
+Project Overview: 
+It is a job-searching website. Every person can visit it and find a new job. 
+If any person can clone it, then 1st case he clones it and git push to his own GitHub repo.
+
+Technology: 
+1. [react-datepicker](https://www.npmjs.com/package/react-datepicker)
+2. [framer-motion](https://www.npmjs.com/package/framer-motion)
+3. [React Hook form](https://react-hook-form.com/get-started)
+4. [react-helmet-async](https://www.npmjs.com/package/react-helmet-async)
 
 Bullet Point:
 
-- Home Page: Home pages has a navbar, Banner, Tab section, History, Newsletter and Footer. In Tab section has four items, such as On site, Hybrid, Part-time and Remote job offer. Each item contain deadline, job posting date, job posting owner name, salary and short description. If you click any point of card, it redirect to details page. In details page, you can apply ow button, if you click apply now button, a modal is open. Here you add a pdf file and submit. Then it save to mongodb.
+- Add a new Jobs: Add a new Jobs page, and you can see a form. After full fill all fields, if you click the add job button, the job item is saved from the database and shows a toast.
 
-- Login Page: Here contain a login page. Also you can login different social login such as google.
+- All Jobs: All Jobs page, you can see all jobs items that are loaded from a database. Here contain search and filter fields. But it will be a private route. If you can log in then you can see it. If you are not logged in, then the page redirects to the login page.
 
-- Register Page: In register page you can sign up by name, photoURL, email and password. After login or register your picture will be show. If you click the picture, then some page will be found. There are add j new job, applied job, my jobs, blog and logout button.
-
-- Add a new Jobs: Add a new Jobs page, you can see a form. After full fill all field, if you click add job button, the job item saved from database and show a toast.
-
-- All Jobs: All Jobs page, you can see all jobs item whose are loaded from database. Here contain search and filter field. But it will be private route. If you cre login then you can see it. If you are not login, then the page redirect in login page.
-
-- My Jobs & Applied Jobs: My Jobs section you will find all jobs item who are added by you. In Applied job page you can see all items whose are applied by you in apply now button. Here you can update or delete any job item from database.
+- My Jobs & Applied Jobs: My Jobs section you find all the job items that are added to you. On the Applied job page, you can see all items that are applied to you in the Apply Now button. Here you can update or delete any job item from the database.
